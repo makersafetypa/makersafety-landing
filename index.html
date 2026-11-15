@@ -139,6 +139,28 @@
   .step h3 { font-size: 1.15rem; margin-bottom: 8px; }
   .step p { color: var(--ink-soft); font-size: .93rem; }
 
+  /* ---------- See it in action (demo videos) ---------- */
+  .demo-grid { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+  @media (min-width: 900px) { .demo-grid { grid-template-columns: 1.65fr 1fr; gap: 28px; } }
+  .demo-player { background: #000; border-radius: 8px; overflow: hidden; aspect-ratio: 1146 / 720;
+    box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+  .demo-player video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; }
+  .demo-now { margin-top: 16px; }
+  .demo-now h3 { color: var(--white); font-size: 1.25rem; }
+  .demo-now p { color: #c9c6bb; font-size: .93rem; margin-top: 4px; max-width: 60ch; }
+  .demo-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .demo-chapter {
+    width: 100%; display: flex; gap: 14px; align-items: flex-start; text-align: left; cursor: pointer;
+    background: #1f1f1f; border: 1px solid #2f2f2f; border-left: 3px solid transparent; border-radius: 6px;
+    padding: 13px 14px; color: var(--white); font: inherit; transition: background .12s ease, border-color .12s ease;
+  }
+  .demo-chapter:hover { background: #272727; }
+  .demo-chapter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .demo-chapter[aria-current="true"] { border-left-color: var(--accent); background: #2a2a2a; }
+  .demo-chapter .num { font-family: var(--font-display); font-weight: 900; font-size: 1.5rem; line-height: 1; color: var(--accent); min-width: 1.4ch; }
+  .demo-chapter .title { display: block; font-weight: 700; font-size: .95rem; }
+  .demo-chapter .meta { display: block; font-family: var(--font-mono); font-size: .72rem; color: #a9a69b; margin-top: 3px; }
+
   /* ---------- Feature grid ---------- */
   .feature-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
   @media (min-width: 700px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -272,6 +294,49 @@
   </div>
 </section>
 
+<section class="dark" id="see-it">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">See it in action</span>
+      <h2>Watch a course go from invite to signed PDF</h2>
+      <p>Five short walkthroughs from our 2026 conference keynote. About 12 minutes in all, with captions.</p>
+    </div>
+    <div class="demo-grid">
+      <div>
+        <div class="demo-player">
+          <video id="demo-video" controls preload="none" playsinline poster="media/1-setup.jpg" src="media/1-setup.mp4"></video>
+        </div>
+        <div class="demo-now" aria-live="polite">
+          <h3 id="demo-title">Setting up a course</h3>
+          <p id="demo-desc">Log in, paste the D&amp;TA link, add your delegates' emails and course date, pick the standards sheets and send. Each delegate gets their own link or QR code.</p>
+        </div>
+      </div>
+      <ol class="demo-list">
+          <li><button type="button" class="demo-chapter" data-src="media/1-setup.mp4" data-poster="media/1-setup.jpg" data-desc="Log in, paste the D&amp;TA link, add your delegates' emails and course date, pick the standards sheets and send. Each delegate gets their own link or QR code." aria-current="true">
+            <span class="num">1</span>
+            <span><span class="title">Setting up a course</span><span class="meta">3:35</span></span>
+          </button></li>
+          <li><button type="button" class="demo-chapter" data-src="media/2-delegate-form.mp4" data-poster="media/2-delegate-form.jpg" data-desc="The invite email, the three D&amp;TA steps, working through the standards sheets, their details and the declaration, all on their own device.">
+            <span class="num">2</span>
+            <span><span class="title">What your delegates see</span><span class="meta">3:22</span></span>
+          </button></li>
+          <li><button type="button" class="demo-chapter" data-src="media/3-sign-off.mp4" data-poster="media/3-sign-off.jpg" data-desc="Check exactly what each delegate ticked, sign off the sheets they've completed, and see what to enter in the D&amp;TA portal.">
+            <span class="num">3</span>
+            <span><span class="title">Signing off</span><span class="meta">1:22</span></span>
+          </button></li>
+          <li><button type="button" class="demo-chapter" data-src="media/4-signed-email.mp4" data-poster="media/4-signed-email.jpg" data-desc="What lands in your delegate's inbox: their signed standards sheets as a PDF, ready to save or print.">
+            <span class="num">4</span>
+            <span><span class="title">The signed documents</span><span class="meta">0:42</span></span>
+          </button></li>
+          <li><button type="button" class="demo-chapter" data-src="media/5-course-settings.mp4" data-poster="media/5-course-settings.jpg" data-desc="Upload course handouts, set your organisation name and signature, write your invite email, and see your billing.">
+            <span class="num">5</span>
+            <span><span class="title">Settings and resources</span><span class="meta">3:04</span></span>
+          </button></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="alt">
   <div class="wrap">
     <div class="section-head">
@@ -358,7 +423,7 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary>What does it cost?</summary>
-        <p>Pricing is invoiced per submission on a Starter or Pro plan, agreed with you directly — there's no fixed public list price yet. Request access and we'll confirm your rate before you're live.</p>
+        <p>Your first 30 delegates are free. After that it's an introductory £3 per participant, and you only pay for the delegates you sign off. There's no subscription: you're invoiced for sign-offs, and your Billing page always shows where you stand.</p>
       </details>
       <details class="faq-item">
         <summary>Do I have to be D&amp;TA-accredited to use this?</summary>
@@ -404,5 +469,32 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var video = document.getElementById('demo-video');
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('.demo-chapter'));
+  if (!video || !chapters.length) return;
+  function select(btn, play) {
+    chapters.forEach(function (c) { c.removeAttribute('aria-current'); });
+    btn.setAttribute('aria-current', 'true');
+    video.poster = btn.dataset.poster;
+    video.src = btn.dataset.src;
+    document.getElementById('demo-title').textContent = btn.querySelector('.title').textContent;
+    document.getElementById('demo-desc').textContent = btn.dataset.desc;
+    if (play) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+  }
+  chapters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      select(btn, true);
+      if (window.matchMedia('(max-width: 899px)').matches) video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+  // When one walkthrough finishes, move on to the next.
+  video.addEventListener('ended', function () {
+    var i = chapters.findIndex(function (c) { return c.getAttribute('aria-current') === 'true'; });
+    if (i > -1 && i < chapters.length - 1) select(chapters[i + 1], true);
+  });
+})();
+</script>
 </body>
 </html>
